@@ -1,6 +1,8 @@
 jquery.tabelizer
 ================
 
+
+
 Multi level grouping indicators for tables.
 
 Tabelizer 1.0.3 - multi level grouping indicators for tables
@@ -13,7 +15,7 @@ http://www.opensource.org/licenses/mit-license.php
 http://www.gnu.org/licenses/gpl.html
 
 Demo:
-http://powerconsulting.co/Samples/Tabelizer
+[Demo](/example.html)
 
 Example Usage:
 
