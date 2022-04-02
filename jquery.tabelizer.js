@@ -117,6 +117,7 @@
 			var rowId = $row.attr('id');
 			var rowLevel = $row.data('level');
 			var skipAction = false;
+			if (rowLevel === 'header') skipAction = true; //skip header rows
 			
 			if (!startAction && rowId == id){
 				startAction = true;
