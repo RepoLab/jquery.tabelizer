@@ -187,6 +187,7 @@
 				if ($row.prev('tr[data-level]').length) { //inherit data-level
 					var inhLevel = $row.prev('tr[data-level]').data('level');
 					$row.data('level', inhLevel);
+					$row.attr('data-level', inhLevel);
 				}
 				else { //ignore top-level rows without data-level
 					$row.addClass('header');
