@@ -176,14 +176,23 @@
 	
 		var currentLevel = '';
 		var prevLevel = '';
+		var index = 0;
 		$prevRow = null;
 		//we want to find all rows of the caller table to apply the base classes to them and make them expandable
 		self.caller.find('tr').each( function(){
 			$row = $(this);
-			currentLevel = $row.data('level')
-			if ( $row.data('level') === undefined) { //ignore rows without data-level
-				$row.addClass('header');
-				$row.data('level', 'header');
+			index += 1;
+			currentLevel = $row.data('level');
+			if ( $row.data('level') === undefined) { 
+				if ($row.closest('tr[data-level]').length) { //inherit data-level
+					var parentLevel = $row.closest('tr[data-level]').data('level');
+					$row.data('level', parentLevel);
+					$row.attr('id', 'tabelizer-row-' + index);
+				}
+				else { //ignore top-level rows without data-level
+					$row.addClass('header');
+					$row.data('level', 'header');
+				}
 			}
 			//don't apply any logic to the header row
 			if (!$row.hasClass('header')){
