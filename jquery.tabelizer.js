@@ -179,7 +179,9 @@
 		//we want to find all rows of the caller table to apply the base classes to them and make them expandable
 		self.caller.find('tr').each( function(){
 			$row = $(this);
-			//don't apply any logic tot the header row
+			currentLevel = $row.data('level')
+			if ( $row.data('level') === undefined) $row.addClass('header') //ignore rows without data-level
+			//don't apply any logic to the header row
 			if (!$row.hasClass('header')){
 				currentLevel = $row.data('level');
 			
