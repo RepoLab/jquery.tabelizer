@@ -184,16 +184,16 @@
 			index += 1;
 			currentLevel = $row.data('level');
 			if ( $row.data('level') === undefined) { 
-				if ($row.closest('tr[data-level]').length) { //inherit data-level
-					var parentLevel = $row.closest('tr[data-level]').data('level');
-					$row.data('level', parentLevel);
-					$row.attr('id', 'tabelizer-row-' + index);
+				if ($row.prev('tr[data-level]').length) { //inherit data-level
+					var inhLevel = $row.prev('tr[data-level]').data('level');
+					$row.data('level', inhLevel);
 				}
 				else { //ignore top-level rows without data-level
 					$row.addClass('header');
 					$row.data('level', 'header');
 				}
 			}
+			if (!$row.attr('id')) $row.attr('id', 'tabelizer-row-' + index); //set id if missing
 			//don't apply any logic to the header row
 			if (!$row.hasClass('header')){
 				currentLevel = $row.data('level');
