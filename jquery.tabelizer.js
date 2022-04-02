@@ -180,7 +180,10 @@
 		self.caller.find('tr').each( function(){
 			$row = $(this);
 			currentLevel = $row.data('level')
-			if ( $row.data('level') === undefined) $row.addClass('header') //ignore rows without data-level
+			if ( $row.data('level') === undefined) { //ignore rows without data-level
+				$row.addClass('header');
+				$row.data('level', 'header');
+			}
 			//don't apply any logic to the header row
 			if (!$row.hasClass('header')){
 				currentLevel = $row.data('level');
